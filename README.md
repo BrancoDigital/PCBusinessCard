@@ -11,12 +11,12 @@ A digital businesscard using an ESP01, PCF8574 and SSD1306 OLED.
 ## LIBRARIES
 This project uses the following libraries:
 
-- Wire [Link Text](URL)
+- Wire (Standard Arduino Library)
 - [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library)
 - [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306)
 - [Adafruit_PCF8574](https://github.com/adafruit/Adafruit_PCF8574)
 - cstring (Standard C++ Library)
-- [QRCode]([URL](https://github.com/ricmoo/qrcode/)
+- [QRCode](https://github.com/ricmoo/qrcode/)
 
 Each library is licensed under its own terms. See the individual library files for more details.
 
