@@ -46,7 +46,11 @@ Each library is licensed under its own terms. See the individual library files f
 
 ## HARDWARE
 
+### SCHEMATICS
 
+### PCB LAYOUT
+
+### MANUFACTURING
 
 ## RELEASES
 Each release of this project contains a self-contained firmware and hardware configuration. These configurations should function "out of the box" in most cases, but please be aware that compatibility between different releases is not guaranteed. Modifications may be necessary if you're attempting to integrate aspects from different releases.
