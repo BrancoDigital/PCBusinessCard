@@ -37,6 +37,8 @@ PCBusinessCard Project Folder       // main project folder
 
 ## FIRMWARE
 
+### MAIN CODE
+
 ### LIBRARIES
 This project uses the following libraries:
 
