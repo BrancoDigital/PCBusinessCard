@@ -12,6 +12,7 @@ The project is organized as follows:
 
 ```
 PCBusinessCard Project Folder       // main project folder
+│
 ├── firmware                        // main firmware folder
 │   ├── ver_1                       // version specific folder
 │   │   ├── main.ino                // main script
