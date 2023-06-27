@@ -18,7 +18,9 @@ PCBusinessCard Project Folder       // main project folder
 │   │   ├── libraries               // own libraries - Please note: you will need to acquire third party libraries yourself, see links down below
 │   │   │   └── library_name_subfolder // subfolder for own libraries (if applicable)
 │   │   ├── assets                  // assets folder 
-│   │   │   └── asset_type_subfolder // asset type subfolder (images, sound effects, etc.)
+│   │   │  └── asset_type_subfolder // asset type subfolder (images, sound effects, etc.)
+│   │   └── ...                     // other subfolders
+│   │
 │   ├── ver_2                       // additional version folders
 │   └── ver_3
 └── hardware                        // main hardware folder
@@ -26,6 +28,8 @@ PCBusinessCard Project Folder       // main project folder
     │   ├── schematics              // schematics for this version
     │   ├── pcb                     // pcb layout files
     │   └── manufacturing           // gerber exports, drill files, BOM, pick and place, etc.
+    │   └── ...                     // other subfolders
+    │
     ├── mk_ii                       // additional version folders
     └── mk_iii
 ```
