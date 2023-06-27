@@ -14,7 +14,7 @@ The project is organized as follows:
   ├── firmware                      // main firmware folder
     ├── ver_1                       // version specific folder
       ├── main.ino                  // main script
-      ├── libraries                 // own libraries - Please note: you will need to acquire third party libraries yourself, see links down below
+      ├── libraries                 // own libraries | third-party libraries not includes, see below
         ├── library_name_subfolder  // subfolder for own libraries (if applicable)
       ├── assets                    // assets folder 
         ├── asset_type_subfolder    // asset type subfolder (images, sound effects, etc.)
