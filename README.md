@@ -32,7 +32,7 @@ The project is organized as follows:
 
 ## FIRMWARE
 
-## LIBRARIES
+### LIBRARIES
 This project uses the following libraries:
 
 - Wire (Standard Arduino Library)
