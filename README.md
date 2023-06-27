@@ -4,7 +4,7 @@ A digital businesscard using an ESP01, PCF8574 and SSD1306 OLED.
 
 ## PURPOSE
 
-##FEATURES
+## FEATURES
 
 ## FIRMWARE
 
