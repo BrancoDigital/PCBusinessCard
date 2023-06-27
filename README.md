@@ -4,11 +4,42 @@ A digital businesscard using an ESP01, PCF8574 and SSD1306 OLED.
 
 ## PURPOSE
 
-##FEATURES
+## FEATURES
+
+## PROJECT STRUCTURE
+
+The project is organized as follows:
+
+```
+PCBusinessCard Project Folder       // main project folder
+│
+├── firmware                        // main firmware folder
+│   ├── ver_1                       // version specific folder
+│   │   ├── main.ino                // main script
+│   │   ├── libraries               // own libraries - Please note: you will need to acquire third party libraries yourself, see links down below
+│   │   │   └── library_name_subfolder // subfolder for own libraries (if applicable)
+│   │   ├── assets                  // assets folder 
+│   │   │  └── asset_type_subfolder // asset type subfolder (images, sound effects, etc.)
+│   │   └── ...                     // other subfolders
+│   │
+│   ├── ver_2                       // additional version folders
+│   └── ver_3
+└── hardware                        // main hardware folder
+    ├── mk_i                        // version specific folder
+    │   ├── schematics              // schematics for this version
+    │   ├── pcb                     // pcb layout files
+    │   ├── manufacturing           // gerber exports, drill files, BOM, pick and place, etc.
+    │   └── ...                     // other subfolders
+    │
+    ├── mk_ii                       // additional version folders
+    └── mk_iii
+```
 
 ## FIRMWARE
 
-## LIBRARIES
+### MAIN CODE
+
+### LIBRARIES
 This project uses the following libraries:
 
 - Wire (Standard Arduino Library)
@@ -22,7 +53,11 @@ Each library is licensed under its own terms. See the individual library files f
 
 ## HARDWARE
 
+### SCHEMATICS
 
+### PCB LAYOUT
+
+### MANUFACTURING
 
 ## RELEASES
 Each release of this project contains a self-contained firmware and hardware configuration. These configurations should function "out of the box" in most cases, but please be aware that compatibility between different releases is not guaranteed. Modifications may be necessary if you're attempting to integrate aspects from different releases.
