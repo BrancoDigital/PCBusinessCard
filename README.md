@@ -8,6 +8,8 @@ A digital businesscard using an ESP01, PCF8574 and SSD1306 OLED.
 
 ## PROJECT STRUCTURE
 
+The project is organized as follows:
+```
 ├── PCBusinessCard Project Folder   // main project folder
   ├── firmware                      // main firmware folder
     ├── ver_1                       // version specific folder
@@ -26,6 +28,7 @@ A digital businesscard using an ESP01, PCF8574 and SSD1306 OLED.
       ├── manufacturing             // gerber exports, drill files, BOM, pick and place, etc.
     ├── mk_ii                       // additional version folders
     ├── mk_iii
+```
 
 ## FIRMWARE
 
