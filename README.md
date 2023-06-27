@@ -27,7 +27,7 @@ PCBusinessCard Project Folder       // main project folder
     ├── mk_i                        // version specific folder
     │   ├── schematics              // schematics for this version
     │   ├── pcb                     // pcb layout files
-    │   └── manufacturing           // gerber exports, drill files, BOM, pick and place, etc.
+    │   ├── manufacturing           // gerber exports, drill files, BOM, pick and place, etc.
     │   └── ...                     // other subfolders
     │
     ├── mk_ii                       // additional version folders
