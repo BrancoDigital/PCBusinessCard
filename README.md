@@ -78,11 +78,6 @@ On the hardware side, I quickly discovered that the decoupling capacitor pairs f
 These combined solutions above allow us to run the entire circuit for its intended purpose on 3V from a single CR2032.
 I have nevertheless initially added 3xCR2032 holders in the first few iterations, reducing this to 2xCR2032 with the MKIV to further reduce hardware cost and waste.
 
-## CODEBASE STRUCTURE
-
-
-
-
 ## PROJECT STRUCTURE
 
 This structure is outdated and will need to be updated.
