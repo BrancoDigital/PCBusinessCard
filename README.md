@@ -23,20 +23,20 @@ Since my skillset in this area was (and is) relatively limited, and I am not muc
 
 As such, I came up with the following rough guidelines:
 
-REQUIREMENTS:
+**REQUIREMENTS:**
 - Primary function: The microdevice still needs to act as a business card, i.e. include name, contact data, position, etc.
 - Interactivity: the business card should be as interactive as possible within its inherent limitations
 - Enhanced functionality: the business card should utilize its nature as a microdevice to enhance the content and interaction
 - Ease of use: The business card needed to be intuitive enough to use after the initial learning curve
 - Readability: The business card needed to display content in a way that's easy to digest (within hardware limitations)
 
-LIMITATIONS:
+**LIMITATIONS:**
 - Skillset: While part of the goal was to expand my knowledge, I still needed to be realistic about my capabilities
 - Hardware: The chosen hardware needed to be capable of covering my requirements, despite low processing power and storage space
 - Power Supply: The hardware needed to be powered in a way that didn't require an external power supply
 - Cost per Unit: The cost per unit needed to be relatively low in order to ensure I could produce enough units to give away
 
-FUTURE CONSIDERATIONS:
+**FUTURE CONSIDERATIONS:**
 - While this is not the case at the moment, future iterations might include a way to keep the business card up to date, to reflect newly acquired skills or milestones. This would make it the "first" business card that keeps itself updated. In order to enable this functionality, I will need to use the ESP01's WIFI & WPS capabilities, but this might have severe implications to the current power supply solution.
 
 
@@ -90,31 +90,65 @@ This structure is outdated and will need to be updated.
 ```
 PCBusinessCard Project Folder       // main project folder
 │
-├── firmware                        // main firmware folder
-│   ├── ver_1                       // version specific folder
-│   │   ├── main.ino                // main script
-│   │   ├── libraries               // own libraries - Please note: you will need to acquire third party libraries yourself, see links down below
-│   │   │   └── library_name_subfolder // subfolder for own libraries (if applicable)
-│   │   ├── assets                  // assets folder 
-│   │   │  └── asset_type_subfolder // asset type subfolder (images, sound effects, etc.)
-│   │   └── ...                     // other subfolders
+├── releases                        // main release folder
+│   ├── current                     // main folder for the current release
+│   │   ├── firmware                // main firmware folder for this release
+│   │   │   ├── main.ino            // main script
+│   │   │   ├── content.h           // content header
+│   │   │   ├── bitmaps.h           // bitmaps header
+│   │   │   ├── qr_codes.h          // QR codes header
+│   │   │   ├── libraries           // library folder
+│   │   │   ├── assets              // asset folder
+│   │   │   └── ...                 // other subfolders
+│   │   │
+│   │   └── hardware                // main hardware folder for this release
+│   │       ├── schematics          // schematics folder for this release
+│   │       ├── pcb                 // PCB layout folder for this release
+│   │       ├── manufacturing       // gerber exports, drill files, BOM, etc. for this release
+│   │       └── ...                 // other subfolders
 │   │
-│   ├── ver_2                       // additional version folders
-│   └── ver_3
-└── hardware                        // main hardware folder
-    ├── mk_i                        // version specific folder
-    │   ├── schematics              // schematics for this version
-    │   ├── pcb                     // pcb layout files
-    │   ├── manufacturing           // gerber exports, drill files, BOM, pick and place, etc.
-    │   └── ...                     // other subfolders
-    │
-    ├── mk_ii                       // additional version folders
-    └── mk_iii
+│   └── archive                     // archive folder for previous releases
+│       ├── mk_iii                  // additional release folders
+│       └── mk_ii
+│
+└── ...
+
 ```
 
 ## FIRMWARE
 
-### MAIN CODE
+### main.ino
+
+TO DO: Explain firmware setup and structure, custom functions
+
+## content.h
+
+The content.h file serves to store the context of each text based subpage as a C-style string (char array).
+It includes several placeholders which can be modified to include personal information. 
+It is also possible to expand the number of subpages, but this needs to be reflected in the menu array in the main.ino script.
+
+## bitmaps.h
+
+This file serves to store the byte arrays for any bitmaps used, such as the custom logo splash screen or the controls diagram.
+Bitmaps can be converted to byte arrays using the online converter by Renzo Mischianti: 
+[Image to Byte Array Online Converter](https://mischianti.org/images-to-byte-array-online-converter-cpp-arduino/)
+
+Things to note:
+- Double check the resolution when converting, the main script is targeting a 128x64 OLED
+- Bitmaps are stored and converted as single code to make it easier to replace
+- If you change the byte array names (or add more bitmaps), the main script will need to be adapted to call the correct names
+- Be careful when adding more bitmaps/byte arrays as this can quickly fill up the available storage on the ESP01
+
+## qr_codes.h
+
+The qr_codes.h file stores the strings used to generate QR codes on the fly.
+This way, we circumvent the need to manually create and convert QR code bitmaps, and save on storage on the ESP01 at the same time.
+A custom function in the main script takes the string of the qr code as well as a subtitle to render both on the display.
+The subtitle can be used to display a human readable text form of the contents, such as a title or URL, improving the user experience of otherwise non-descript QR codes.
+
+Things to note:
+- Both the QR code strings as well as the subtitles need to be relatively short, as the display resolution is limited to 128x64
+- This means that content heavy strings/QR codes such as V-Cards are not supported
 
 ### LIBRARIES
 This project uses the following libraries:
@@ -133,9 +167,20 @@ Bitmap Byte Arrays converted using "Image to byte array online converter" by Ren
 
 ## HARDWARE
 
+This project includes the schematics and gerber files to produce custom PCBs.
+The goal was to provide everything necessary to replicate this project and adapt it to ones personal needs.
+
+The schematic is set up in such a way that it should be easy enough to replicate and adapted manually, if desired.
+
+The current version of the PCB uses mainly SMD components for PCB Assembly (such as through pcb manufacturer services), but can be adapted to through-hole components as needed.
+
 ### SCHEMATICS
 
+TO DO: Upload schematics
+
 ### PCB LAYOUT
+
+TO DO: Upload unbranded PCB layout / gerber files.
 
 ### MANUFACTURING
 
@@ -143,6 +188,16 @@ Bitmap Byte Arrays converted using "Image to byte array online converter" by Ren
 Each release of this project contains a self-contained firmware and hardware configuration. These configurations should function "out of the box" in most cases, but please be aware that compatibility between different releases is not guaranteed. Modifications may be necessary if you're attempting to integrate aspects from different releases.
 
 Regarding licensing, it's crucial to note that each release may be subject to different licensing terms. Always review the license accompanying each release, as the terms may vary. Typically, the most recent release is published primarily for reference and might not immediately come with a license. Always check the license status of each release to understand the permissions and restrictions that apply.
+
+The current release is **PCBusinessCard MKIV**.
+Earlier releases each had significant issues one way or the other, so they serve mostly as references and will otherwise be archived.
+
+**MKIV:** Current version
+MKIII: Custom PCB version using mostly SMD components and a custom connector PCB, as the ESP01 footprint was accidentally mirrored
+MKII: Custom PCB version using mostly THT components and manual assembly
+MKI: First handheld version on generic PCB, using 2xAA to run
+MK0: Breadboard prototype
+
 
 ## DISCLAIMER
 The code and designs in this repository are provided "as is", without warranty of any kind, express or implied. They are intended for educational and experimental purposes only, and should not be used in critical or unsafe contexts.
